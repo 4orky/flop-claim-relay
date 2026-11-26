@@ -44,7 +44,7 @@ const server = http.createServer(async (req, res) => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ address: payload.address, nonce: payload.nonce, signature: payload.signature }),
-        signal: AbortSignal.timeout(60000),
+        signal: AbortSignal.timeout(120000),
       });
       const text = await up.text();
       console.log(`claim address=${payload.address} nonce=${payload.nonce} faucet_http=${up.status} body=${text.slice(0, 500)}`);
